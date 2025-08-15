@@ -7,7 +7,57 @@
   <link rel="stylesheet" href="./src/style.css">
   <title>Vite App Test</title>
 </head>
-<body>
-<div class="text-2xl underline">Hello, World!</div>
+
+<body class="bg-gray-100 min-h-screen">
+
+  <header class="bg-gray-800 text-white">
+    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-3">
+        <img src="./images/HomeGuardLogo.png" alt="Logo" class="h-12 w-12 object-contain" />
+        <span class="text-xl font-bold">Home Guard</span>
+      </div>
+
+      <div class="hidden md:flex space-x-6">
+        <a href="#" class="hover:text-gray-300 transition">Home</a>
+        <a href="#" class="hover:text-gray-300 transition">About</a>
+        <a href="#" class="hover:text-gray-300 transition">Services</a>
+        <a href="#" class="hover:text-gray-300 transition">Contact</a>
+      </div>
+
+      <button id="menu-btn" class="md:hidden focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </nav>
+
+    <div id="mobile-menu" class="bg-gray-700 text-white px-6 py-4 space-y-2 hidden md:hidden">
+      <a href="#" class="block hover:text-gray-300 transition">Home</a>
+      <a href="#" class="block hover:text-gray-300 transition">About</a>
+      <a href="#" class="block hover:text-gray-300 transition">Services</a>
+      <a href="#" class="block hover:text-gray-300 transition">Contact</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 py-20 text-center">
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
+      Welcome to Home Guard
+    </h1>
+    <p class="mt-6 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
+      Pest Control Solutions
+    </p>
+    <div class="mt-10 flex justify-center gap-4 flex-wrap">
+      <a href="#get-started" class="px-6 py-3 bg-indigo-600 text-white rounded-lg text-lg font-medium hover:bg-indigo-700 transition">
+        Get Started
+      </a>
+      <a href="#learn-more" class="px-6 py-3 bg-gray-200 text-gray-900 rounded-lg text-lg font-medium hover:bg-gray-300 transition">
+        Learn More
+      </a>
+    </div>
+  </main>
+
+  <script src="./src/js/main.js"></script>
 </body>
+
 </html>
