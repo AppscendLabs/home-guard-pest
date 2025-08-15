@@ -4,28 +4,27 @@
 :root { 
   scroll-behavior: smooth; 
 }
-
-.reveal {
-  opacity: 0;
-  transform: translateY(18px) scale(0.98);
+/* Default: visible everywhere */
+.reveal { 
+  opacity: 1;
+  transform: none;
 }
 
+/* Respect users who prefer reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1;
-    transform: none !important;
-    animation: none !important;
-  }
+  .reveal { opacity: 1; transform: none !important; animation: none !important; }
 }
 
+/* Enhance only on browsers that support view-timeline */
 @supports (animation-timeline: view()) {
-  /* Fade, slide, and pop effect */
   @keyframes fade-up-pop {
     from { opacity: 0; transform: translateY(18px) scale(0.98); }
-    to   { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 1; transform: translateY(0)    scale(1); }
   }
 
   .reveal {
+    opacity: 0; /* now only hidden when we know we can animate it in */
+    transform: translateY(18px) scale(0.98);
     animation-name: fade-up-pop;
     animation-duration: 700ms;
     animation-fill-mode: both;
@@ -34,7 +33,7 @@
     animation-range: entry 0% cover 60%;
   }
 
-    .reveal-footer {
+  .reveal-footer {
     animation-name: fade-up-pop;
     animation-duration: 700ms;
     animation-fill-mode: both;
@@ -44,6 +43,8 @@
   }
 
   .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
     animation-name: fade-up-pop;
     animation-duration: 700ms;
     animation-fill-mode: both;
