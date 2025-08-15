@@ -5,57 +5,385 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./src/style.css">
-  <title>Vite App Test</title>
+  <title>Home Guard Pest Control</title>
+  <link rel="icon" href="images/HomeGuardLogo.png" type="image/x-icon">
 </head>
 
 <body class="bg-gray-100 min-h-screen">
 
-  <header class="bg-gray-800 text-white">
-    <nav class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <img src="./images/HomeGuardLogo.png" alt="Logo" class="h-12 w-12 object-contain" />
-        <span class="text-xl font-bold">Home Guard</span>
-      </div>
+<header class="bg-[#f7f7f7] shadow text-[#192756] sticky top-0 z-50">
+  <nav class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#home" class="flex items-center gap-3">
+      <img src="./images/HomeGuardLogo.png" alt="Logo" class="h-12 w-12 object-contain" />
+      <span class="text-xl font-bold">Home Guard</span>
+    </a>
 
-      <div class="hidden md:flex space-x-6">
-        <a href="#" class="hover:text-gray-300 transition">Home</a>
-        <a href="#" class="hover:text-gray-300 transition">About</a>
-        <a href="#" class="hover:text-gray-300 transition">Services</a>
-        <a href="#" class="hover:text-gray-300 transition">Contact</a>
-      </div>
+    <!-- Desktop nav -->
+    <ul class="hidden md:flex items-center space-x-4">
+      <li><a href="#home"  class="btn btn-ghost btn-sm text-[#192756] hover:text-[#c51b35]">Home</a></li>
+      <li><a href="#about" class="btn btn-ghost btn-sm text-[#192756] hover:text-[#c51b35]">About</a></li>
+      <li>
+        <!-- Services dropdown (no JS) -->
+        <details class="dropdown dropdown-end">
+          <summary class="btn btn-ghost btn-sm text-[#192756] hover:text-[#c51b35]">Services</summary>
+          <ul class="menu dropdown-content mt-1 p-2 w-56 bg-gray-200 text-[#192756] rounded-box shadow-2xl">
+            <li><a href="#mosquito" class="hover:shadow-md">Mosquito Control</a></li>
+            <li><a href="#rodent"   class="hover:shadow-md">Rodent Control</a></li>
+            <li><a href="#wildlife" class="hover:shadow-md">Wildlife Control</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="#contact" class="btn btn-ghost btn-sm text-[#192756] hover:text-[#c51b35]">Contact</a></li>
+    </ul>
 
-      <button id="menu-btn" class="md:hidden focus:outline-none">
-        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- Mobile hamburger (no JS; details-based dropdown) -->
+    <details class="dropdown dropdown-end md:hidden">
+      <summary class="btn btn-ghost btn-sm" aria-label="Open menu">
+        <!-- hamburger -->
+        <svg class="h-6 w-6 text-[#192756]" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16" />
+                d="M4 6h16M4 12h16M4 18h16" />
         </svg>
-      </button>
-    </nav>
+      </summary>
+      <!-- Mobile menu panel -->
+      <ul class="menu dropdown-content mt-2 p-2 w-72 bg-[#192756] text-white rounded-box shadow-2xl">
+        <li><a href="#home"   class="text-sm hover:bg-white/10 rounded">Home</a></li>
+        <li><a href="#about"  class="text-sm hover:bg-white/10 rounded">About</a></li>
+        <li>
+          <!-- Nested services submenu (still no JS) -->
+          <details>
+            <summary class="text-sm hover:bg-white/10 rounded">Services</summary>
+            <ul class="p-2">
+              <li><a href="#mosquito" class="text-sm hover:bg-white/10 rounded">Mosquito Control</a></li>
+              <li><a href="#rodent"   class="text-sm hover:bg-white/10 rounded">Rodent Control</a></li>
+              <li><a href="#wildlife" class="text-sm hover:bg-white/10 rounded">Wildlife Control</a></li>
+            </ul>
+          </details>
+        </li>
+        <li><a href="#contact" class="text-sm hover:bg-white/10 rounded">Contact</a></li>
+      </ul>
+    </details>
+  </nav>
+</header>
 
-    <div id="mobile-menu" class="bg-gray-700 text-white px-6 py-4 space-y-2 hidden md:hidden">
-      <a href="#" class="block hover:text-gray-300 transition">Home</a>
-      <a href="#" class="block hover:text-gray-300 transition">About</a>
-      <a href="#" class="block hover:text-gray-300 transition">Services</a>
-      <a href="#" class="block hover:text-gray-300 transition">Contact</a>
-    </div>
-  </header>
 
-  <main class="max-w-7xl mx-auto px-6 py-20 text-center">
-    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900">
-      Welcome to Home Guard
-    </h1>
-    <p class="mt-6 text-lg sm:text-xl text-gray-700 max-w-2xl mx-auto">
-      Pest Control Solutions
-    </p>
-    <div class="mt-10 flex justify-center gap-4 flex-wrap">
-      <a href="#get-started" class="px-6 py-3 bg-indigo-600 text-white rounded-lg text-lg font-medium hover:bg-indigo-700 transition">
-        Get Started
-      </a>
-      <a href="#learn-more" class="px-6 py-3 bg-gray-200 text-gray-900 rounded-lg text-lg font-medium hover:bg-gray-300 transition">
-        Learn More
-      </a>
+<section id="home" class="px-6 py-16 md:py-32 bg-[#192756] text-white">
+    <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center md:items-center gap-10">
+
+      <div class="flex-1 text-center md:text-left reveal">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold">
+          Welcome to Home Guard
+        </h1>
+        <p class="mt-4 sm:mt-6 text-lg sm:text-xl max-w-xl mx-auto md:mx-0">
+          Household Pest and Mosquito Solutions
+        </p>
+        <div class="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <a href="#services"
+            class="px-6 py-3 bg-[#c51b35] text-white rounded-lg text-lg font-medium hover:bg-[#a0172e] transition">
+            Get Free Quote
+          </a>
+          <a href="#about"
+            class="px-6 py-3 bg-white text-[#192756] rounded-lg text-lg font-medium hover:bg-gray-100 transition">
+            Contact Us
+          </a>
+        </div>
+      </div>
+
+      <div class="flex-1 flex justify-center md:justify-end reveal">
+        <img src="./images/HomeGuardLogo.png" alt="Home Guard Hero" class="max-w-xs sm:max-w-sm md:max-w-md h-auto">
+      </div>
+
     </div>
-  </main>
+  </section>
+
+
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16 reveal">
+      <h2 class="text-3xl md:text-4xl mb-4 font-semibold">Our Expert Services</h2>
+      <p class="text-xl max-w-2xl mx-auto">
+        Comprehensive pest control solutions tailored to protect your home and family from unwanted invaders.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 auto-rows-fr reveal-stagger">
+      <!-- Household Pest Control -->
+      <article class="bg-white rounded-xl border border-gray-100  hover:shadow-lg transition-shadow flex flex-col h-full text-center p-6">
+        <h3 class="text-lg font-semibold">Household Pest Control</h3>
+        <p class="text-sm text-[var(--color-muted-foreground)] mt-2">
+          Comprehensive protection against ants, roaches, spiders, and other common household pests.
+        </p>
+
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Safe for families</span>
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Guaranteed results</span>
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Quarterly Protection</span>
+          </div>
+          <a href="/household-pest-control"
+             class="inline-flex items-center justify-center rounded-lg px-5 py-3 font-medium transition border border-gray-300 text-gray-800 hover:bg-gray-50 mx-auto">
+            Learn More
+          </a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl border border-gray-100 shadow-[var(--shadow-card)] hover:shadow-lg transition-shadow flex flex-col h-full text-center p-6">
+        <h3 class="text-lg font-semibold">Mosquito Control</h3>
+        <p class="text-sm text-[var(--color-muted-foreground)] mt-2">
+          Advanced mosquito management to reclaim your outdoor spaces and protect your family.
+        </p>
+
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">One Time Service</span>
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Event treatments</span>
+          </div>
+          <a href="/mosquito-control"
+             class="inline-flex items-center justify-center rounded-lg px-5 py-3 font-medium transition border border-gray-300 text-gray-800 hover:bg-gray-50 mx-auto">
+            Learn More
+          </a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl border border-gray-100 shadow-[var(--shadow-card)] hover:shadow-lg transition-shadow flex flex-col h-full text-center p-6">
+        <h3 class="text-lg font-semibold">Rodent Control</h3>
+        <p class="text-sm text-[var(--color-muted-foreground)] mt-2">
+          Effective elimination and prevention of mice, rats, and other rodents.
+        </p>
+
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Humane Removal</span>
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Entry point sealing</span>
+          </div>
+          <a href="/rodent-control"
+             class="inline-flex items-center justify-center rounded-lg px-5 py-3 font-medium transition border border-gray-300 text-gray-800 hover:bg-gray-50 mx-auto">
+            Learn More
+          </a>
+        </div>
+      </article>
+
+      <article class="bg-white rounded-xl border border-gray-100 shadow-[var(--shadow-card)] hover:shadow-lg transition-shadow flex flex-col h-full text-center p-6">
+        <h3 class="text-lg font-semibold">Wildlife Control</h3>
+        <p class="text-sm text-[var(--color-muted-foreground)] mt-2">
+          Professional wildlife removal and exclusion services for your property.
+        </p>
+
+        <div class="mt-auto w-full">
+          <div class="flex flex-wrap justify-center gap-2 mb-4">
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Humane removal</span>
+            <span class="inline-block rounded-full border border-gray-200 px-2.5 py-1 text-xs text-gray-700 bg-gray-50">Prevention strategies</span>
+          </div>
+          <a href="/wildlife-control"
+             class="inline-flex items-center justify-center rounded-lg px-5 py-3 font-medium transition border border-gray-300 text-gray-800 hover:bg-gray-50 mx-auto">
+            Learn More
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="py-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 class="text-3xl md:text-4xl mb-6 font-semibold reveal">About Us</h2>
+        <p class="text-lg mb-8">Home Guard is a locally owned pest control service in Marion, Arkansas. We serve all surrounding cities/counties within Arkansas!</p>
+        <p class="text-lg mb-8"> My name is Alden Deese, and I started Home Guard in February of 2023. After doing pest control work for friends and family for years, 
+          I decided to open my own business to bring a quality service at a fair price to everyone. 
+          For years, folks in our area have been limited to large scale businesses that value their bottom line more than the customer. 
+          It is our top priority to meet every customer's needs and to ensure a job well done. 
+          We're a small business trying to make a name for ourselves in a market dominated by the big guys, 
+          which is why you can trust that we will always put you first.</p>
+      </div>
+
+      <div class="relative">
+        <img
+          src="./images/about_us_picture.JPG"
+          alt="Professional pest control technician"
+          class="rounded-lg shadow-xl w-full h-96 object-cover"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600?text=Home+Guard';"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 reveal">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      
+      <div class="relative">
+        <img
+          src="./images/pest_to_rest.png"
+          alt="Pest To Rest"
+          class="rounded-lg shadow-xl w-full h-full object-cover"
+          onerror="this.onerror=null; this.src='https://via.placeholder.com/1200x600?text=Home+Guard';"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg"></div>
+      </div>
+      <div>
+        <h2 class="text-3xl md:text-4xl mb-6 font-semibold">Why Choose Home Guard?</h2>
+        <p class="text-lg text-[var(--color-muted-foreground)] mb-8">
+          With over a decade of experience protecting homes and businesses, Home Guard combines cutting-edge pest control technology with time-tested methods to deliver results you can count on.
+        </p>
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <!-- Benefit 1 -->
+          <div class="flex items-start gap-3 ">
+            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <span class="text-primary text-sm font-semibold">✓</span>
+            </div>
+            <div>
+              <h4 class="mb-2 font-medium">Licensed &amp; Insured</h4>
+              <p class="text-sm text-[var(--color-muted-foreground)]">
+                Fully licensed pest control professionals with comprehensive insurance coverage.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="flex items-start gap-3 reveal-stagger">
+            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <span class="text-primary text-sm font-semibold">✓</span>
+            </div>
+            <div>
+              <h4 class="mb-2 font-medium">Family Safe</h4>
+              <p class="text-sm text-[var(--color-muted-foreground)]">
+                All treatments are safe for children and pets when applied according to label directions.
+              </p>
+            </div>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="flex items-start gap-3 reveal-stagger">
+            <div class="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+              <span class="text-primary text-sm font-semibold">✓</span>
+            </div>
+            <div>
+              <h4 class="mb-2 font-medium">Guaranteed Results</h4>
+              <p class="text-sm text-[var(--color-muted-foreground)]">
+                We stand behind our work with satisfaction guarantees on all services.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white reveal-footer">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
+      <!-- Company -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="./images/HomeGuardLogo.png" alt="Home Guard Logo" class="h-10 w-10" />
+          <span class="text-xl">Home Guard</span>
+        </div>
+        <p class="text-white/80 mb-6">
+          Professional pest control services protecting homes and families with safe, effective, and guaranteed solutions.
+        </p>
+      
+      </div>
+
+      <!-- Services -->
+      <div>
+        <h3 class="text-lg mb-4">Our Services</h3>
+        <ul class="space-y-2">
+          <li><a href="/household-pest-control" class="text-white/80 hover:text-white transition-colors text-sm">Household Pest Control</a></li>
+          <li><a href="/mosquito-control" class="text-white/80 hover:text-white transition-colors text-sm">Mosquito Control</a></li>
+          <li><a href="/rodent-control" class="text-white/80 hover:text-white transition-colors text-sm">Rodent Control</a></li>
+          <li><a href="/wildlife-control" class="text-white/80 hover:text-white transition-colors text-sm">Wildlife Control</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h3 class="text-lg mb-4">Quick Links</h3>
+        <ul class="space-y-2">
+          <li><a href="/contact" class="text-white/80 hover:text-white transition-colors text-sm">Contact Us</a></li>
+          <li><a href="/service-requests" class="text-white/80 hover:text-white transition-colors text-sm">Service Request</a></li>
+          <li><a href="/about" class="text-white/80 hover:text-white transition-colors text-sm">About Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact Info -->
+      <div>
+        <h3 class="text-lg mb-4">Contact Info</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <!-- Phone -->
+            <svg class="h-4 w-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2 5a2 2 0 012-2h2.28a1 1 0 01.95.684l1.03 3.09a1 1 0 01-.27 1.04l-1.2 1.2a16 16 0 007.59 7.59l1.2-1.2a1 1 0 011.04-.27l3.09 1.03a1 1 0 01.684.95V20a2 2 0 01-2 2h-1C8.82 22 2 15.18 2 6V5z"/>
+            </svg>
+            <div>
+              <a href="tel:8705148990" class="text-white/80 hover:text-white transition-colors text-sm">(870)-514-8990</a>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <svg class="h-4 w-4 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16a2 2 0 012 2v.5l-10 6L2 8.5V8a2 2 0 012-2z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M22 8.5v7a2 2 0 01-2 2H4a2 2 0 01-2-2v-7"/>
+            </svg>
+            <div>
+              <a href="mailto:contact@homeguardpest.org" class="text-white/80 hover:text-white transition-colors text-sm">contact@homeguardpest.org</a>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="h-4 w-4 text-white/60 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-6-4.35-6-9a6 6 0 1112 0c0 4.65-6 9-6 9z"/>
+              <circle cx="12" cy="12" r="2.5" />
+            </svg>
+            <div class="text-sm text-white/80">
+              <div>Home Guard LLC Household Pest and Mosquito</div>
+              <div class="text-xs text-white/60">2434 AR-77 Marion, Arkansas 72364</div>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <svg class="h-4 w-4 text-white/60 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 7v5l3 3"/>
+            </svg>
+            <div class="text-sm text-white/80">
+              <div>Mon–Sat: 8:00 AM – 6:00 PM</div>
+              <div>Sunday: Closed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-white/20 mt-8 pt-8">
+      <div class="flex flex-col md:flex-row justify-between">
+        <div class="text-sm text-white/80 mb-4 md:mb-0">
+          © <span id="year">2025</span> Home Guard Pest Control. All rights reserved.
+        </div>
+
+        <div class="text-sm text-white/80 mb-4 md:mb-0">
+         Powered by Appscend Labs, LLC
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+<script>
+  const y = document.getElementById('year');
+  if (y) y.textContent = new Date().getFullYear();
+</script>
 
   <script src="./src/js/main.js"></script>
 </body>
